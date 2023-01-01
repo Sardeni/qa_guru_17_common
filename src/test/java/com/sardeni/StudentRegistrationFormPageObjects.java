@@ -18,6 +18,10 @@ public class StudentRegistrationFormPageObjects extends TestBase {
         String pictureFIleName = "brad_pitt.png";
         String pictureSource = "images/brad_pitt.png";
         String stateAndCity = "NCR Noida";
+        String hobbieSport = "Sports";
+        String hobbieRead = "Reading";
+        String state = "NCR";
+        String city = "Noida";
 
         registrationPage.openPage()
                 .setFirstName(name)
@@ -27,12 +31,12 @@ public class StudentRegistrationFormPageObjects extends TestBase {
                 .setUserPhoneNumber(phoneNumber)
                 .setBirthDate("05", "May", "1987")
                 .setSubject(subject)
-                .setHobbie("Sports")
-                .setHobbie("Reading")
+                .setHobbie(hobbieSport)
+                .setHobbie(hobbieRead)
                 .uploadPhoto(pictureSource)
                 .setAddress(currentAddress)
-                .selectState("NCR")
-                .selectCity("Noida")
+                .selectState(state)
+                .selectCity(city)
                 .clickSubmitButton();
 
         registrationPage.verifyResultsModalAppears();
