@@ -1,27 +1,33 @@
 package com.sardeni;
 
 
+import com.github.javafaker.Faker;
 import org.junit.jupiter.api.Test;
 
+import static com.codeborne.selenide.Selenide.sleep;
+
 public class StudentRegistrationFormPageObjects extends TestBase {
+
+    Faker faker = new Faker();
+
     @Test
     void studentRegistrationFormTest() {
-        String name = "Pavel";
-        String lastName = "Emelianov";
-        String email = "pavel@gmail.com";
-        String phoneNumber = "1234567891";
-        String currentAddress = "Tbilsi, 16 Metekhi Street";
-        String gender = "Male";
-        String dateOfBirth = "5 May,1987";
-        String subject = "Computer Science";
-        String hobbies = "Sports, Reading";
-        String pictureFIleName = "brad_pitt.png";
-        String pictureSource = "images/brad_pitt.png";
-        String stateAndCity = "NCR Noida";
-        String hobbieSport = "Sports";
-        String hobbieRead = "Reading";
-        String state = "NCR";
-        String city = "Noida";
+        String name = faker.name().firstName(),
+                lastName = faker.name().lastName(),
+                email = faker.internet().emailAddress(),
+                phoneNumber = faker.phoneNumber().subscriberNumber(10),
+                currentAddress = faker.address().fullAddress(),
+                gender = "Male",
+                dateOfBirth = "5 May,1987",
+                subject = "Computer Science",
+                hobbies = "Sports, Reading",
+                pictureFIleName = "brad_pitt.png",
+                pictureSource = "images/brad_pitt.png",
+                stateAndCity = "NCR Noida",
+                hobbieSport = "Sports",
+                hobbieRead = "Reading",
+                state = "NCR",
+                city = "Noida";
 
         registrationPage.openPage()
                 .setFirstName(name)
